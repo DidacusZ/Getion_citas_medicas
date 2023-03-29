@@ -65,7 +65,7 @@ class Medico{//id,nombre,apellido,
 	
 }
 
-/*
+
 var nuevaFecha;
 function FechaHora()//Fecha Hora aleatoria
 {
@@ -76,6 +76,16 @@ function FechaHora()//Fecha Hora aleatoria
 	console.log("milisegundos actual \n"+milisegundosFechaActual);
 	
 	//dias del 1 al 60
+	
+	let random = Math.random();
+        random = random * 16 + 8;
+        random = Math.trunc(random);
+        console.log(random);
+        
+    if(random>16)
+    	random=random-8
+        
+        
 	let sumarDias = Math.floor((Math.random()*60)+1);
 	
 	let milisegundosUnDia= 1*24*60*60*1000;
@@ -89,14 +99,16 @@ function FechaHora()//Fecha Hora aleatoria
 	console.log("nueva fecha \n"+nuevaFecha);
 	
 	//horas del las 8 a las 18
-	let horas = Math.floor((Math.random()*18)+8);
+	let horas = Math.trunc((Math.random()*18)+8);
 	
+	console.log(horas);
+	console.log(random);
 	nuevaFecha.setHours(horas);
 	
 	console.log("nueva fecha con nueva hora \n"+nuevaFecha);
 
 }
-*/
+
 var  vUsuarios = new Usuario;
 var vMedicos = new Medico;
 var vCentros = new CentroMedico;
@@ -140,7 +152,7 @@ for(let i=0;i<contUsu;i++){
 console.log(posicionUsu);
 
 //pedimis el centro
-let centro = prompt("Hola "+vUsuarios[posicionUsu].nombre+" a que centro desea acudir? \n 1: Virgen del Rocio, Sevilla \n 2: Bernabeu, Madrid")
+//let centro = prompt("Hola "+vUsuarios[posicionUsu].nombre+" a que centro desea acudir? \n 1: Virgen del Rocio, Sevilla \n 2: Bernabeu, Madrid")
 
 
 
@@ -149,7 +161,16 @@ let centro = prompt("Hola "+vUsuarios[posicionUsu].nombre+" a que centro desea a
 
 
 
-/*
+
+
+
+
+
+//prompt("La fecha y hora asignada es la sigiente")
+
+
+
+
+
 FechaHora();
-console.log(nuevaFecha);
-*/
+//console.log(nuevaFecha);
