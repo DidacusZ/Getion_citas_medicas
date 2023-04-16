@@ -53,7 +53,7 @@ class ConsultaMedica //habitaculo
 	
 }
 
-
+/*
 class Medico// id,nobreCentro,ciudad
 {
 	
@@ -68,7 +68,7 @@ class Medico// id,nobreCentro,ciudad
 	
 }
 
-
+*/
 
 
 
