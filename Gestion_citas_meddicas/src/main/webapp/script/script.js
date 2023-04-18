@@ -9,6 +9,24 @@ class Usuario //id,nombre,apellido
 	
 }
 
+
+class Medico// id,nobreCentro,ciudad
+{
+	
+	constructor(id,nombre,apellido,idCentro,){
+		
+		this.id=id;
+		this.nombre=nombre;
+		this.apellido=apellido;
+		this.idCentro=idCentro;
+		
+	}
+	
+}
+
+
+
+/*
 class CitaMedica extends Usuario //id,FechaHora,idUsu,idMedico,NumConsulta,Centro
 {
 	
@@ -28,50 +46,7 @@ class CitaMedica extends Usuario //id,FechaHora,idUsu,idMedico,NumConsulta,Centr
 	
 	
 }
-
-class CentroMedico// id,nobreCentro,ciudad
-{
-	
-	constructor(id,nombreCentro,ciudad,numConsultas){
-		
-		this.id=id;
-		this.nombreCentro=nombreCentro;
-		this.ciudad=ciudad;
-		this.numConsultas=numConsultas;
-	}
-	
-	
-	
-}
-
-
-
-class ConsultaMedica //habitaculo
-{
-	
-		
-	
-}
-
-/*
-class Medico// id,nobreCentro,ciudad
-{
-	
-	constructor(id,nombre,apellido,idCentro,){
-		this.id=id;
-		this.nombre=nombre;
-		this.apellido=apellido;
-		this.idCentro=idCentro;
-	}
-	
-	
-	
-}
-
 */
-
-
-
 
 var nuevaFecha;
 function FechaHora()//Fecha Hora aleatoria
@@ -84,9 +59,8 @@ function FechaHora()//Fecha Hora aleatoria
 	
 	//dias del 1 al 60
 	
-	let random = Math.random();
-        random = random * 16 + 8;
-        random = Math.trunc(random);
+	let random = ramdom(8,16);
+
         console.log(random);
         
     if(random>16)
@@ -112,16 +86,16 @@ function FechaHora()//Fecha Hora aleatoria
 	//console.log(horas);
 	
 	console.log(random);
-	nuevaFecha.setHours(random);//horas de 8:00 a 16:00
+	nuevaFecha.setHours(random);//devuelve horas aleatorias entre las 8:00 y las 16:00
 	
 	console.log("nueva fecha con nueva hora \n"+nuevaFecha);
 
 }
 
-var  vUsuarios = new Usuario;
-var vMedicos = new Medico;
-var vCentros = new CentroMedico;
-var vCitasMedicas = new CitaMedica;
+var  vUsuarios = [];
+var vMedicos = [];
+
+//var vCitasMedicas = new CitaMedica;
 
 //creamos usuarios
 vUsuarios[0]=new Usuario(1234,"diego","prad");
@@ -134,24 +108,53 @@ let contUsu=5
 
 //creamos Medicos
 
-vMedicos[0]=new Medico(1,"Nicolas","Maduro",2);
-vMedicos[1]=new Medico(2,"Fidel","Castro",1);
-vMedicos[2]=new Medico(3,"Francisco","Franco",1);
+
+vMedicos[0]=new Medico(1,"Nicolas","Maduro","Virgen del Rocio, Sevilla");
+vMedicos[1]=new Medico(2,"Fidel","Castro","Virgen del Rocio, Sevilla");
+vMedicos[2]=new Medico(3,"Francisco","Franco","Virgen del Rocio, Sevilla");
+vMedicos[3]=new Medico(3,"Vladimir","Putin","Virgen del Rocio, Sevilla");
+vMedicos[4]=new Medico(3,"Adolf","Hitler","Virgen del Rocio, Sevilla");
 
 
-//creamos Centros Medicos
-
-vCentros[0] = new CentroMedico(1,"Virgen del Rocio","Sevilla",123);
-vCentros[1] = new CentroMedico(2,"Bernabeu","Madrid",53);
 
 
-//CitaMedica
+//pedir CitaMedica
 
-let numSS = 2345   //prompt("Cual es tu numero de la seguridad social")
 
+
+/*
+// SS
+let respuesta=prompt("Estas registrado en la Seguridad Social s/n")
+
+let numSS   //prompt("Cual es tu numero de la seguridad social")
+
+switch(respuesta){
+	
+	case 's':
+	
+	numSS = 2345 //prompt("Cual es tu numero de la seguridad social")
+	
+	break;
+	
+	case 'n':
+		
+	numSS = ramdom(1111,9999);
+	prompt(" A continuacion vamos a registrarte, indica tu nombre completo:")
+	prompt("Escribe tu apellido")
+	
+	break;
+}
+
+*/
+
+
+
+
+
+let numSS
 //obtenemos la posicio del vector para ese numero de SS
 let posicionUsu;
-for(let i=0;i<contUsu;i++){
+for(let i=0;i<vUsuarios.length;i++){
 	
 	if(vUsuarios[i].numSeguridadSocial==numSS){		
 		posicionUsu=i;
@@ -160,19 +163,35 @@ for(let i=0;i<contUsu;i++){
 }
 console.log(posicionUsu);
 
-//pedimis el centro
-//let centro = prompt("Hola "+vUsuarios[posicionUsu].nombre+" a que centro desea acudir? \n 1: Virgen del Rocio, Sevilla \n 2: Bernabeu, Madrid")
+console.log("medicos: "+vMedicos.length);
+
+	let randomMedico = Math.random();
+        randomMedico = randomMedico * vMedicos.length;
+        randomMedico = Math.trunc(randomMedico);
+        console.log(randomMedico);
+        
+        console.log(ramdom(0,vMedicos.length));
 
 
 //prompt("La fecha y hora asignada es la sigiente")
 //prompt("quieres cambiarla s/n")
 
 
+
 //creamos citas medicas
 
-vCitasMedicas[0]= new CitaMedica();
+//vCitasMedicas[0]= new CitaMedica();
 
-
+function ramdom(desde,hasta){
+	
+	console.log("ramdom")
+	let ramdom = Math.random();
+        ramdom = ramdom * hasta + desde;
+        ramdom = Math.trunc(ramdom);
+        
+    console.log(ramdom)
+        return (ramdom);
+}
 
 
 
