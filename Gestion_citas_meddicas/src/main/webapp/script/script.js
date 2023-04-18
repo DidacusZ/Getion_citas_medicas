@@ -13,7 +13,7 @@ class Usuario //id,nombre,apellido
 class Medico// id,nobreCentro,ciudad
 {
 	
-	constructor(id,nombre,apellido,idCentro,){
+	constructor(id,nombre,apellido,idCentro){
 		
 		this.id=id;
 		this.nombre=nombre;
@@ -26,7 +26,7 @@ class Medico// id,nobreCentro,ciudad
 
 
 
-/*
+
 class CitaMedica extends Usuario //id,FechaHora,idUsu,idMedico,NumConsulta,Centro
 {
 	
@@ -46,7 +46,7 @@ class CitaMedica extends Usuario //id,FechaHora,idUsu,idMedico,NumConsulta,Centr
 	
 	
 }
-*/
+
 
 var nuevaFecha;
 function FechaHora()//Fecha Hora aleatoria
@@ -54,8 +54,8 @@ function FechaHora()//Fecha Hora aleatoria
 	let fechaActual = new Date()
 	let milisegundosFechaActual = fechaActual.getTime();
 	
-	console.log("fecha actual \n"+fechaActual);
-	console.log("milisegundos actual \n"+milisegundosFechaActual);
+	//console.log("fecha actual \n"+fechaActual);
+	//console.log("milisegundos actual \n"+milisegundosFechaActual);
 	
 	//dias del 1 al 60
 	
@@ -66,7 +66,7 @@ function FechaHora()//Fecha Hora aleatoria
     if(random>16)
     	random=random-8
         
-    console.log(random+"a");
+    //console.log(random+"a");
         
 	let sumarDias = Math.floor((Math.random()*60)+1);//dia 1 - 60
 	
@@ -74,23 +74,27 @@ function FechaHora()//Fecha Hora aleatoria
 	
 	let milisegundosNuevaFecha=milisegundosFechaActual+(sumarDias*milisegundosUnDia);
 	
-	console.log("milisegundos nueva fecha \n"+milisegundosNuevaFecha);
+	//console.log("milisegundos nueva fecha \n"+milisegundosNuevaFecha);
 	
 	nuevaFecha = new Date(milisegundosNuevaFecha);
 	
-	console.log("nueva fecha \n"+nuevaFecha);
+	//console.log("nueva fecha \n"+nuevaFecha);
 	
 	//horas del las 8 a las 18
 	//let horas = Math.trunc((Math.random()*18)+8);
 	
 	//console.log(horas);
 	
-	console.log(random);
+	//console.log(random);
 	nuevaFecha.setHours(random);//devuelve horas aleatorias entre las 8:00 y las 16:00
 	
-	console.log("nueva fecha con nueva hora \n"+nuevaFecha);
+	//console.log("nueva fecha con nueva hora \n"+nuevaFecha);
+	
+	return 	nuevaFecha;
 
 }
+
+console.log(FechaHora());
 
 var  vUsuarios = [];
 var vMedicos = [];
@@ -151,8 +155,8 @@ switch(respuesta){
 
 
 
-let numSS
-//obtenemos la posicio del vector para ese numero de SS
+let numSS=2345
+//obtenemos la posicion del vector para ese numero de SS
 let posicionUsu;
 for(let i=0;i<vUsuarios.length;i++){
 	
@@ -161,19 +165,20 @@ for(let i=0;i<vUsuarios.length;i++){
 		break;
 	}		
 }
-console.log(posicionUsu);
+console.log("la posicion usuario con nuum SS "+numSS+" es: "+posicionUsu);
 
-console.log("medicos: "+vMedicos.length);
+console.log("num posiciones medicos: "+vMedicos.length);
 
 	let randomMedico = Math.random();
         randomMedico = randomMedico * vMedicos.length;
         randomMedico = Math.trunc(randomMedico);
         console.log(randomMedico);
         
-        console.log(ramdom(0,vMedicos.length));
+        console.log("posicion medico aleatoria "+ramdom(0,vMedicos.length));
 
 
 //prompt("La fecha y hora asignada es la sigiente")
+//FechaHora();
 //prompt("quieres cambiarla s/n")
 
 
@@ -194,8 +199,11 @@ function ramdom(desde,hasta){
 }
 
 
+console.log();
+console.log();
+console.log();
 
 
 
-FechaHora();
+//FechaHora();
 //console.log(nuevaFecha);
